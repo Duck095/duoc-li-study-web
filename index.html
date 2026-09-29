@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0f766e" />
-  <title>Ôn tập Dược lý</title>
+  <title>Ôn tập Dược lý & Bệnh học</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,12 +12,12 @@
     <header class="topbar">
       <div>
         <div class="eyebrow">BỘ ÔN TẬP OFFLINE</div>
-        <h1>Dược lý — Ôn tập, Kiểm tra & Flashcard</h1>
-        <p class="muted">Dữ liệu và tiến độ được lưu ngay trên trình duyệt của bạn.</p>
+        <h1 id="appTitle">Dược lý — Ôn tập, Kiểm tra & Flashcard</h1>
+        <p class="muted">Chọn môn học, chế độ và bộ câu. Tiến độ của từng môn được lưu riêng trên trình duyệt.</p>
       </div>
       <div class="top-actions">
         <button class="btn ghost" id="themeBtn" title="Đổi giao diện">🌙 Giao diện</button>
-        <button class="btn ghost" id="resetBtn" title="Xóa tiến độ">↺ Đặt lại tiến độ</button>
+        <button class="btn ghost" id="resetBtn" title="Xóa tiến độ môn hiện tại">↺ Đặt lại môn này</button>
       </div>
     </header>
 
@@ -33,12 +33,33 @@
         <div class="panel-head">
           <div>
             <h2 id="setupTitle">Chọn câu để ôn tập</h2>
-            <p class="muted" id="setupHint">Bạn có thể chọn theo khoảng, random, câu sai, chưa nhớ hoặc chưa học.</p>
+            <p class="muted" id="setupHint">Bạn có thể chọn môn, chủ đề, khoảng câu, random, câu sai, chưa nhớ hoặc chưa học.</p>
           </div>
-          <span class="badge" id="totalBadge">156 câu</span>
+          <span class="badge" id="totalBadge">0 câu</span>
+        </div>
+
+        <div class="subject-banner">
+          <div>
+            <span class="subject-label">Môn đang chọn</span>
+            <strong id="subjectBannerName">Dược lý</strong>
+          </div>
+          <span class="muted" id="subjectBannerMeta"></span>
         </div>
 
         <div class="picker-grid">
+          <label class="field">
+            <span>Môn học</span>
+            <select id="subjectSelect">
+              <option value="duoc">💊 Dược lý</option>
+              <option value="benh">🩺 Bệnh học</option>
+            </select>
+          </label>
+
+          <label class="field" id="topicField">
+            <span>Chủ đề</span>
+            <select id="topicSelect"><option value="all">Tất cả chủ đề</option></select>
+          </label>
+
           <label class="field">
             <span>Nguồn câu hỏi</span>
             <select id="sourceType">
@@ -73,17 +94,7 @@
           </label>
         </div>
 
-        <div class="quick-filters">
-          <button class="chip" data-quick="1-20">1–20</button>
-          <button class="chip" data-quick="21-40">21–40</button>
-          <button class="chip" data-quick="41-80">41–80</button>
-          <button class="chip" data-quick="81-120">81–120</button>
-          <button class="chip" data-quick="121-156">121–156</button>
-          <button class="chip" data-quick="all">Tất cả</button>
-          <button class="chip warning" data-quick="wrong">↻ Làm lại câu sai</button>
-          <button class="chip danger" data-quick="forgot">🧠 Chưa nhớ</button>
-        </div>
-
+        <div class="quick-filters" id="quickFilters"></div>
         <div id="poolInfo" class="pool-info"></div>
         <button class="btn primary big" id="startBtn">Bắt đầu ôn tập</button>
       </section>
@@ -96,12 +107,13 @@
     </main>
 
     <footer>
-      <span>Offline • Không cần server • Lưu bằng localStorage</span>
+      <span>Offline • Không cần server • Mỗi môn lưu tiến độ riêng bằng localStorage</span>
       <span>Phím tắt: 1–4 chọn đáp án • Space lật flashcard • ←/→ chuyển câu</span>
     </footer>
   </div>
 
   <script src="data.js"></script>
+  <script src="pathology-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

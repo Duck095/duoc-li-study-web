@@ -1,41 +1,41 @@
-WEB ÔN TẬP DƯỢC LÝ - HƯỚNG DẪN CHẠY
-=====================================
+WEB ÔN TẬP DƯỢC LÝ & BỆNH HỌC - HƯỚNG DẪN
+================================================
 
+CÁCH CHẠY TRÊN MÁY
 1. Giải nén thư mục.
 2. Bấm đúp file index.html.
-3. Website chạy trực tiếp bằng Chrome / Edge / Firefox, KHÔNG cần Node.js, Python hay server.
+3. Website chạy trực tiếp bằng Chrome / Edge / Firefox, không cần Node.js, Python hay server.
+
+CÁCH CHẠY TRÊN GITHUB PAGES
+- Upload toàn bộ các file trong thư mục này lên thư mục gốc của repository.
+- Trong GitHub: Settings -> Pages -> Deploy from a branch -> main -> /(root) -> Save.
 
 CÁC FILE
-- index.html  : giao diện chính
-- styles.css  : giao diện / responsive / dark mode
-- data.js     : dữ liệu câu hỏi, đáp án và giải thích
-- app.js      : toàn bộ chức năng học, kiểm tra, flashcard, lưu tiến độ
+- index.html          : giao diện chính
+- styles.css          : giao diện / responsive / dark mode
+- app.js              : chức năng đa môn, ôn tập, kiểm tra, flashcard, lưu tiến độ
+- data.js             : 156 câu Dược lý
+- pathology-data.js   : 160 câu Bệnh học
+
+MÔN HỌC
+1. Dược lý: 156 câu từ 2 tài liệu Dược lý đã cung cấp trước đó.
+2. Bệnh học: 160 câu.
+   - Câu 1-135: trích từ BỆNH HỌC.docx. Đáp án lấy theo phương án được in đậm trong tài liệu.
+   - Câu 136-160: các câu bổ sung từ đề CamScanner, ưu tiên các câu không bị trùng rõ ràng với ngân hàng Word. Đáp án theo phương án được đánh dấu trên bản scan.
+   - Một ca viêm loét dạ dày bị đánh dấu đáp án không thống nhất giữa các bản scan nên không thêm thành câu mới để tránh học sai.
 
 CHỨC NĂNG
-- Ôn tập theo khoảng: ví dụ 1-20, 21-40...
-- Random N câu.
-- Ôn tất cả câu.
-- Làm lại câu đã chọn sai.
-- Ôn lại các câu đánh dấu “Chưa nhớ”.
-- Chỉ học các câu chưa học.
-- Kiểm tra: không hiện đáp án trước khi nộp; sau khi nộp xem điểm + giải thích từng lựa chọn.
-- Flashcard: click hoặc Space để lật; phím mũi tên để đổi thẻ.
-- Đánh dấu Đã học / Chưa nhớ.
-- localStorage lưu tiến độ khi reload, đóng trình duyệt rồi mở lại.
-- Lưu phiên đang làm để có thể tiếp tục sau khi reload.
-- Dark mode.
-- Xuất tiến độ dạng JSON.
+- Chọn MÔN HỌC trước khi học: Dược lý hoặc Bệnh học.
+- Với Bệnh học có thể lọc thêm theo chủ đề.
+- Ôn tập theo khoảng câu, random, tất cả, câu sai, câu chưa nhớ, câu chưa học.
+- Kiểm tra: không hiện đáp án cho đến khi nộp; sau khi nộp xem điểm + đáp án + giải thích.
+- Flashcard: click hoặc Space để lật; đánh dấu Đã học / Chưa nhớ.
+- Làm lại các câu chọn sai ở tất cả chế độ phù hợp.
+- Tiến độ được lưu riêng cho từng môn bằng localStorage.
+- Tự động chuyển tiến độ Dược lý từ bản cũ (duocLiStudy.v2) sang bản đa môn khi có thể.
+- Dark mode và xuất tiến độ JSON.
 
-DỮ LIỆU
-- Tổng cộng: 156 câu từ 2 file Word.
-- Câu 1-40: lấy từ file đề đã có đáp án; website giữ nguyên đáp án theo đề.
-- Câu 41-156: lấy từ file “CÂU HỎI ÔN TẬP DƯỢC LÝ”; file này có 116 câu thực tế (đánh số 1-117 nhưng thiếu câu 58) và không kèm đáp án.
-- Với 116 câu của file 2, đáp án và giải thích được bổ sung theo kiến thức dược lý; giao diện ghi rõ “Đáp án bổ sung”.
-- Những câu mơ hồ, có lỗi đánh máy hoặc có hơn một lựa chọn hợp lý được gắn cảnh báo riêng.
-- Mỗi câu đều có giải thích cho cả 4 phương án A/B/C/D.
-
-LƯU Ý DỮ LIỆU
-Một số câu trong đề gốc có nhiều phương án cùng đúng về mặt phân loại dược lý. Website giữ đáp án của file 1, đồng thời hiện cảnh báo và giải thích các phương án còn lại.
-
-THÊM CÂU HỎI
-Mở data.js và thêm object mới theo cấu trúc các câu đang có. Sau khi bạn gửi thêm file dữ liệu, có thể gộp tiếp các câu mới vào QUESTION_BANK.
+LƯU Ý VỀ ĐÁP ÁN / GIẢI THÍCH
+- Dược lý: giữ nguyên cách phân biệt “đáp án theo đề” và “đáp án bổ sung” của bản 156 câu.
+- Bệnh học Word: đáp án dựa trên chữ in đậm trong tài liệu nguồn. Phần giải thích được thêm để hỗ trợ ôn tập và luôn ghi rõ nguồn đáp án.
+- Bệnh học scan: đáp án dựa trên phương án được đánh dấu trên ảnh scan. Những câu có khả năng gây nhầm được ghi chú trong web.

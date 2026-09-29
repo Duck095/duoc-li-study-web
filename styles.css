@@ -181,3 +181,30 @@ footer { display: flex; justify-content: space-between; gap: 14px; color: var(--
 .source-tag { display:inline-flex; align-items:center; padding:4px 9px; border-radius:999px; font-size:.78rem; font-weight:700; background:rgba(15,118,110,.10); color:var(--primary); }
 .source-tag.secondary { background:rgba(217,119,6,.12); color:#b45309; }
 .dark .source-tag.secondary { color:#fbbf24; }
+
+/* Đa môn */
+.subject-banner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  margin:18px 0 4px;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:linear-gradient(135deg, var(--primary-soft), color-mix(in srgb, var(--panel) 78%, var(--primary-soft)));
+}
+.subject-banner > div { display:flex; flex-direction:column; gap:3px; }
+.subject-label { font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.subject-banner strong { font-size:18px; }
+.progress-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.compact-select { border:1px solid var(--line); background:var(--panel); color:var(--text); border-radius:12px; padding:10px 12px; font-weight:750; }
+#progressPanel .stats-grid { grid-template-columns:repeat(5,1fr); }
+
+@media (max-width: 900px) {
+  #progressPanel .stats-grid { grid-template-columns:repeat(3,1fr); }
+}
+@media (max-width: 620px) {
+  .subject-banner { flex-direction:column; align-items:flex-start; }
+  #progressPanel .stats-grid { grid-template-columns:repeat(2,1fr); }
+}
