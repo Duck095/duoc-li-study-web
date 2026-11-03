@@ -53,6 +53,8 @@ h2, h3 { margin-top: 0; }
 .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--primary); }
 .muted { color: var(--muted); }
 .top-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.course-selectors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: min(100%, 520px); margin-top: 16px; }
+.lesson-description { max-width: 720px; margin: 9px 0 0; font-size: 13px; line-height: 1.5; }
 
 .mode-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
 .tab { border: 1px solid var(--line); background: var(--panel); color: var(--text); padding: 12px 14px; border-radius: 14px; font-weight: 750; }
@@ -70,6 +72,7 @@ body.dark .tab.active { color: #062925; }
 .field input, .field select { width: 100%; border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 12px; padding: 11px 12px; outline: none; }
 .field input:focus, .field select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
 .quick-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.quick-ranges { display: contents; }
 .chip { border: 1px solid var(--line); background: var(--panel); color: var(--text); padding: 8px 11px; border-radius: 999px; font-weight: 700; }
 .chip:hover { border-color: var(--primary); }
 .chip.warning { color: var(--warn); background: var(--warn-soft); }
@@ -160,6 +163,7 @@ footer { display: flex; justify-content: space-between; gap: 14px; color: var(--
 
 @media (max-width: 780px) {
   .topbar { flex-direction: column; }
+  .course-selectors { width: 100%; }
   .mode-tabs { grid-template-columns: repeat(2, 1fr); }
   .picker-grid { grid-template-columns: 1fr 1fr; }
   .picker-grid .field:first-child { grid-column: 1 / -1; }
@@ -173,38 +177,4 @@ footer { display: flex; justify-content: space-between; gap: 14px; color: var(--
   .picker-grid .field:first-child { grid-column: auto; }
   .session-toolbar { align-items: flex-start; }
   .flashcard { min-height: 430px; }
-}
-
-
-/* Metadata cho bộ 156 câu */
-.source-meta { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 12px; }
-.source-tag { display:inline-flex; align-items:center; padding:4px 9px; border-radius:999px; font-size:.78rem; font-weight:700; background:rgba(15,118,110,.10); color:var(--primary); }
-.source-tag.secondary { background:rgba(217,119,6,.12); color:#b45309; }
-.dark .source-tag.secondary { color:#fbbf24; }
-
-/* Đa môn */
-.subject-banner {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:14px;
-  margin:18px 0 4px;
-  padding:14px 16px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:linear-gradient(135deg, var(--primary-soft), color-mix(in srgb, var(--panel) 78%, var(--primary-soft)));
-}
-.subject-banner > div { display:flex; flex-direction:column; gap:3px; }
-.subject-label { font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
-.subject-banner strong { font-size:18px; }
-.progress-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-.compact-select { border:1px solid var(--line); background:var(--panel); color:var(--text); border-radius:12px; padding:10px 12px; font-weight:750; }
-#progressPanel .stats-grid { grid-template-columns:repeat(5,1fr); }
-
-@media (max-width: 900px) {
-  #progressPanel .stats-grid { grid-template-columns:repeat(3,1fr); }
-}
-@media (max-width: 620px) {
-  .subject-banner { flex-direction:column; align-items:flex-start; }
-  #progressPanel .stats-grid { grid-template-columns:repeat(2,1fr); }
 }
